@@ -23,7 +23,7 @@ const firebaseConfig = {
   storageBucket: "roselie-digitals-4ece4.appspot.com",
   messagingSenderId: "506496490813",
   appId: "1:506496490813:web:443b255a18bfcd08ce3954",
-  databaseURL: "https://taxiuptax-default-rtdb.firebaseio.com",
+  databaseURL: "https://roselie-digitals-4ece4-default-rtdb.firebaseio.com",
 };
 
 // ⚙️ Initialize Firebase

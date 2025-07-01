@@ -91,10 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!sideMenu || !mainArea) {
     console.warn("⚠️ Sidebar or main-area container not found.");
   }
+});
 
-  // 🔁 Dynamic admin background styling (color/image)
+
+// ✅ Wait until DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
   const adminSettingsRef = ref(db, "adminSettings");
 
+  // 🔁 Live listener for admin-controlled background
   onValue(adminSettingsRef, (snapshot) => {
     const settings = snapshot.val() || {};
 
@@ -112,4 +116,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-

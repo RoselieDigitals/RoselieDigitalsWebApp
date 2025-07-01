@@ -91,4 +91,25 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!sideMenu || !mainArea) {
     console.warn("⚠️ Sidebar or main-area container not found.");
   }
+
+  // 🔁 Dynamic admin background styling (color/image)
+  const adminSettingsRef = ref(db, "adminSettings");
+
+  onValue(adminSettingsRef, (snapshot) => {
+    const settings = snapshot.val() || {};
+
+    if (settings.backgroundColor) {
+      document.body.style.setProperty("background-color", settings.backgroundColor, "important");
+    }
+
+    if (settings.backgroundImage) {
+      document.body.style.setProperty("background-image", `url(${settings.backgroundImage})`, "important");
+      document.body.style.setProperty("background-size", "cover", "important");
+      document.body.style.setProperty("background-repeat", "no-repeat", "important");
+      document.body.style.setProperty("background-position", "center", "important");
+    } else {
+      document.body.style.setProperty("background-image", "none", "important");
+    }
+  });
 });
+
